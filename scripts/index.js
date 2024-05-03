@@ -11,9 +11,6 @@ const observer = new IntersectionObserver((entries) => {
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el) => observer.observe(el));
 
-const imageTrack = document.getElementById("image-track");
-observer.observe(imageTrack);
-
 // Smooth scrolling script with custom speed
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {

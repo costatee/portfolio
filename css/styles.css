@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 body {
-  margin: 0;
+  margin-left: 40px;
+  margin-right: 40px;
   padding: 0;
   font-family: "Roboto", sans-serif;
   background-color: rgb(4, 0, 15);
@@ -28,12 +29,12 @@ footer {
   border: solid gold 2px;
 }
 
-section {
+/* section {
   border: solid 2px red;
-}
+} */
 
 #navbar {
-  position: fixed;
+  font-family: "Roboto", sans-serif;
   margin-top: 30px;
   top: 0;
   left: 0;
@@ -42,14 +43,14 @@ section {
   color: white;
   text-align: center;
   line-height: 40px;
-  border: solid 2px gold;
+  /* border: solid 2px gold; */
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   background-color: black;
 }
 
-#slideshow, #cards, #contact {
+#cards, #contact {
   height: 100vh;
   display: flex;
   align-items: center;
@@ -67,44 +68,25 @@ section {
 
 #textbox {
   display: inline-block;
-  margin-left: 20px;
-  width: 500px;
+  width: 700px;
   height: 300px;
-  font-size: 4rem;
-  word-spacing: 5px;
-  font-weight: 600;
+  font-size: 5rem;
+  word-spacing: 3px;
+  font-weight: 500;
   user-select: none;
   -webkit-user-select: none;
   cursor: default;
+  letter-spacing: 1.5px;
+  margin-top: 200px;
+  margin-bottom: auto;
 }
 
-h1 {
-  color: red;
+p >#textbox {
+  color: yellow;
 }
-
 
 #textbox span {
   transition: color 3s linear;
-}
-
-#image-track {
-  scroll-snap-align: start;
-  width: 100%;
-  overflow-x: auto; 
-  overflow-y: hidden; 
-  white-space: nowrap; 
-  -webkit-overflow-scrolling: touch; 
-  object-fit: cover;
-  object-position: center;
-}
-
-#image-track > .image {
-  width: 40vmin;
-  height: 56vmin;
-  object-fit: cover;
-  object-position: 100% center;
-  display: inline-block;
-  margin: 0 20px;
 }
 
 footer > p {
