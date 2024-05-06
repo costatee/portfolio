@@ -1,6 +1,6 @@
 // footer date
 let date = new Date().getFullYear()
-document.getElementById('date').textContent = date.toString();
+document.getElementById('date').innerHTML = date.toString();
 
 let colors = [  
   "#FFB6C1", "#FF69B4", "#FFA07A", "#FF7F50", "#F08080",
@@ -26,44 +26,50 @@ let colors = [
     return randomColor;
   }
 
+  
+// selecting elements
 const textbox = document.getElementById('textbox');
 const h1 = document.getElementById('h1');
 
-// individual letter in a <span> tag
-const text = textbox.textContent.trim();
-textbox.style.color = 'grey'
-const newText = text.split('').map(letter => `<span>${letter}</span>`).join('');
-textbox.innerHTML = newText;
+// p text coloring
+if (textbox) {
+  const text = textbox.textContent.trim();
+  textbox.style.color = 'grey'
+  const newText = text.split('').map(letter => `<span>${letter}</span>`).join('');
+  textbox.innerHTML = newText;
 
-textbox.addEventListener('mouseover', function(event) {
-  if (event.target.tagName === 'SPAN') {
-      event.target.style.transition = 'color 30ms ease-in-out'; 
-      event.target.style.color = getRandomColor();
-  }
-});
+  textbox.addEventListener('mouseover', function(event) {
+    if (event.target.tagName === 'SPAN') {
+        event.target.style.transition = 'color 30ms ease-in-out'; 
+        event.target.style.color = getRandomColor();
+    }
+  });
 
-textbox.addEventListener('mouseout', function(event) {
-  if (event.target.tagName === 'SPAN') {
-      event.target.style.transition = 'color 5s ease-in-out';
-      event.target.style.color = '';
-  }
-});
+  textbox.addEventListener('mouseout', function(event) {
+    if (event.target.tagName === 'SPAN') {
+        event.target.style.transition = 'color 5s ease-in-out';
+        event.target.style.color = '';
+    }
+  });
+}
 
-const h1text = h1.textContent.trim();
-// h1.style.color = 'white'
-const newh1Text = h1text.split('').map(letter => `<span>${letter}</span>`).join('');
-h1.innerHTML = newh1Text;
+// h1 text coloring
+if (h1) {
+  const h1text = h1.textContent.trim();
+  const newh1Text = h1text.split('').map(letter => `<span>${letter}</span>`).join('');
+  h1.innerHTML = newh1Text;
 
-h1.addEventListener('mouseover', function(event) {
-  if (event.target.tagName === 'SPAN') {
-      event.target.style.transition = 'color 30ms ease-in-out'; 
-      event.target.style.color = getRandomColor();
-  }
-});
+  h1.addEventListener('mouseover', function(event) {
+    if (event.target.tagName === 'SPAN') {
+        event.target.style.transition = 'color 30ms ease-in-out'; 
+        event.target.style.color = getRandomColor();
+    }
+  });
 
-h1.addEventListener('mouseout', function(event) {
-  if (event.target.tagName === 'SPAN') {
-      event.target.style.transition = 'color 5s ease-in-out';
-      event.target.style.color = '';
-  }
-});
+  h1.addEventListener('mouseout', function(event) {
+    if (event.target.tagName === 'SPAN') {
+        event.target.style.transition = 'color 4s ease-in-out';
+        event.target.style.color = '';
+    }
+  });
+}

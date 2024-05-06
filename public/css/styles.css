@@ -4,12 +4,18 @@ body {
   margin-left: 40px;
   margin-right: 40px;
   padding: 0;
+  box-sizing: border-box;
   font-family: "Roboto", sans-serif;
-  background-color: rgb(4, 0, 15);
+  background-color: white;
   overflow: hidden;
-  color: white;
+  color: black;
   user-select: none;
   -webkit-user-select: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }
 
 #date {
@@ -31,6 +37,8 @@ body {
   justify-content: center;
   align-items: center;
   height: 90vh;
+  max-width: 100%;
+  overflow: hidden;
   font-size: 1rem;
 }
 
@@ -43,16 +51,47 @@ body {
 }
 
 #navbar {
+  padding-top: 8px;
   height: 22px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  font-size: 1rem;
+  z-index: 1;
 }
 
 a {
-  color: white;
+  color: black;
   text-decoration: none;
+}
 
+button {
+  padding: 8px;
+  border-radius: 10px;
+  color: black;
+  background-color: white;
+  border: none;
+}
+
+button:hover {
+  background-color: rgb(239, 239, 239);
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+}
+
+.source-button {
+  background-color: rgb(250, 230, 0);
+  border: 1px solid black;
+}
+
+.live-button:hover {
+  background-color: rgb(250, 230, 0);
+  border: 1px solid black;
 }
 
 #h1 {
@@ -73,4 +112,54 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+}
+
+img {
+  border: none;
+}
+
+.card {
+  min-height: 20vh;
+  min-width: 32vw;
+  max-width: 600px;
+  max-height: 500px;
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 28px;
+}
+
+.card-image {
+  width: 95%;
+  max-height: 80%;
+  max-width: 100%;
+  margin-bottom: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+@media (max-width: 1024px) {
+  #cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  #cards {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    min-width: 90vw;
+  }
 }
