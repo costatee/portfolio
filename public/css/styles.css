@@ -1,21 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
 body {
-  margin-left: 40px;
-  margin-right: 40px;
-  padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
-  background-color: black;
-  overflow: hidden;
-  color: white;
+  background: #0F2027;
+  /* background: -webkit-linear-gradient(to right, #31363F, #31363F, #222831); 
+  background: linear-gradient(to right, #232526, #414345);  */
+  background: linear-gradient(to right, #e6dada, #274046);
+  color: #EEEEEE;
   user-select: none;
   -webkit-user-select: none;
 }
 
-a {
-  text-decoration: none;
-  color: black;
+#main-container {
+  overflow-x: hidden;
+}
+
+#slider {
+  display: flex;
+  width: 500vw;
+  height: 100%;
+}
+
+section {
+  flex: 0 0 auto; /* Allow sections to grow and shrink, but don't allow them to grow larger than their content */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #date {
@@ -26,79 +40,16 @@ a {
 #about {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
-  height: 90vh;
-  font-size: 4rem;
-}
-
-#work {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 90vh;
-  max-width: 100%;
-  overflow: hidden;
-  font-size: 1rem;
+  font-size: 4.2rem;
+  width: 70vw;
+  height: 95vh;
 }
 
 #contact {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 90vh;
-  font-size: 1rem;
-}
-
-#navbar {
-  padding-top: 8px;
-  height: 22px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  font-size: 1rem;
-  z-index: 1;
-}
-
-a {
-  color: white;
-  text-decoration: none;
-}
-
-button {
-  padding: 10px;
-  margin-top: -4px;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  color: black;
-  background-color: white;
-  border: none;
-}
-
-button:hover {
-  background-color: rgb(239, 239, 239);
-}
-
-.buttons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 95%;
-}
-
-.source-button {
-  background-color: rgb(250, 230, 0);
-  border-bottom-right-radius: 15px;
-}
-
-.live-button {
-  border-bottom-left-radius: 15px;
-}
-
-.live-button:hover {
-  background-color: rgb(250, 230, 0);
+  margin-top: 200px;
+  height: 100vh;
 }
 
 #h1 {
@@ -106,12 +57,12 @@ button:hover {
   max-width: 20ch;
   margin: 0;
   padding: 0;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 #textbox {
-  min-width: 20ch;
-  max-width: 20ch;
+  min-width: 25ch;
+  max-width: 25ch;
   font-weight: 500;
 }
 
@@ -121,54 +72,54 @@ footer {
   align-items: center;
 }
 
-#cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 15px;
+#gigglehub {
+  margin-top: 20vh;
 }
 
 .card {
-  min-height: 20vh;
-  min-width: 32vw;
-  max-width: 600px;
-  max-height: 500px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+  height: 39vh;
+  width: 65vw;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  border-radius: 28px;
-  border: solid rgba(255, 255, 255, 0.345) 1px;
-  padding: 0;
-  margin: 0;
+  border-radius: 50px;
+  background: #4e5d65;
+  box-shadow:  20px 20px 60px #2a2e36,
+               -20px -20px 60px #383e48;
+  border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
-.card-image {
-  width: 95%;
-  max-height: 80%;
-  max-width: 100%;
-  margin-bottom: 10px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
-@media (max-width: 1024px) {
-  #cards {
-    grid-template-columns: 1fr 1fr;
-  }
+.description {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  margin-bottom: auto;
+  margin-top: 1rem;
+  margin-left: 2rem;
+  letter-spacing: 0.5px;
+  word-spacing: 1px;
 }
 
-@media (max-width: 768px) {
-  #cards {
-    grid-template-columns: 1fr;
-  }
-  .card {
-    min-width: 90vw;
-  }
+.card p {
+  max-width: 37ch;
+  margin-left: 2px;
+}
+
+.card img {
+  border-radius: 40px;
+  margin-left: 1.4rem;
+  transform: scale(1.07);
+  width: 100%;
+  height: auto;
+  border: none;
 }

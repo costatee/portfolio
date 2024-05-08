@@ -1,13 +1,35 @@
 <%- include('partials/header.ejs'); -%>
-<%- include('partials/navbar.ejs'); -%>
 
-    <div id="about">
-        <div id="h1">
-            <p>Hi, I'm Attila.</p>
-        </div>
-        <div id="textbox">
-            <p>A full stack web developer, based in Madrid, Spain.</p>
+    <div id="main-container">
+        <div id="slider">
+            <section id="about">
+                <div id="h1">
+                    <p>Hi, I'm Attila.</p>
+                </div>
+                <div id="textbox">
+                    <p>A full stack web developer, based in Madrid, Spain.</p>
+                </div>
+            </section>
+            <section id="work">
+                <div id="gigglehub">
+                    <div class="card">
+                        <div class="image-container">
+                            <img src="/images/gigglehub.gif" alt="gigglehub"/>
+                        </div>
+                        <div class="description">
+                            <strong>"GiggleHub"</strong>
+                            <p>This project is a single-page web application, designed to display jokes in a clean and minimalistic interface. It utilizes Node.js, Express.js, and EJS for both front-end and back-end development.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
+
+    <section id="contact">
+        Email
+        Phone
+        Everything
+    </section>
     
 <%- include('partials/footer.ejs'); -%>

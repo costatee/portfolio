@@ -1,4 +1,11 @@
-// footer date
+import gsap from "https://cdn.skypack.dev/gsap";
+import { ScrollTrigger } from "https://cdn.skypack.dev/gsap/ScrollTrigger";
+
+console.log(gsap.version); // -> 3.12.2
+console.log(ScrollTrigger.version); // -> 3.12.2
+
+gsap.registerPlugin(ScrollTrigger);
+
 let date = new Date().getFullYear()
 document.getElementById('date').innerHTML = date.toString();
 
@@ -35,6 +42,7 @@ const h1 = document.getElementById('h1');
 if (textbox) {
   const text = textbox.textContent.trim();
   textbox.style.color = 'grey'
+  textbox.style.width = '20ch'
   const newText = text.split('').map(letter => `<span>${letter}</span>`).join('');
   textbox.innerHTML = newText;
 
@@ -68,8 +76,26 @@ if (h1) {
 
   h1.addEventListener('mouseout', function(event) {
     if (event.target.tagName === 'SPAN') {
-        event.target.style.transition = 'color 4s ease-in-out';
+        event.target.style.transition = 'color 5s ease-in-out';
         event.target.style.color = '';
     }
   });
 }
+
+const slider = document.getElementById('slider');
+
+let tl = gsap.timeline({
+  defaults: {
+    ease: "none"
+  }, 
+  scrollTrigger: {
+    trigger: slider,
+    pin: true,
+    scrub: 2,
+    end: () => "+=" + slider.offsetWidth
+  }
+})
+
+tl.to(slider, {
+  xPercent: -66
+})
