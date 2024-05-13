@@ -1,17 +1,35 @@
 <%- include('partials/header.ejs'); -%>
 
     <div id="main-container">
+        <div id="canvas-container"></div>
         <div id="slider">
             <section id="about">
                 <div id="h1">
                     <p>Hi, I'm Attila.</p>
                 </div>
                 <div id="textbox">
-                    <p>A full stack web developer, based in Madrid, Spain.</p>
+                    <p>A full stack web developer focused on client side based in Madrid, Spain.</p>
                 </div>
             </section>
             <section id="work">
+
                 <div id="gigglehub">
+                    <div class="card">
+                        <div class="image-container">
+                            <img src="/images/gigglehub.gif" alt="gigglehub"/>
+                        </div>
+                        <div class="description">
+                            <a href="https://joke-express-yj3te.ondigitalocean.app" target="_blank" rel="noreferrer noopener">
+                                <strong>"GiggleHub"</strong>
+                            </a>
+                            <p>This project is a single-page web application, designed to display jokes in a clean and minimalistic interface. It utilizes Node.js, Express.js, and EJS for both front-end and back-end development.</p>
+                            <img class="logos" src="/images/nodejs.svg" alt="node.js logo" />
+                            <img class="logos" src="/images/expressjs.svg" alt="express.js logo" />
+                        </div>
+                    </div>
+                </div>
+
+                <div id="experience-two">
                     <div class="card">
                         <div class="image-container">
                             <img src="/images/gigglehub.gif" alt="gigglehub"/>
@@ -19,17 +37,50 @@
                         <div class="description">
                             <strong>"GiggleHub"</strong>
                             <p>This project is a single-page web application, designed to display jokes in a clean and minimalistic interface. It utilizes Node.js, Express.js, and EJS for both front-end and back-end development.</p>
+                            <img class="logos" src="/images/nodejs.svg" alt="node.js logo" />
+                            <img class="logos" src="/images/expressjs.svg" alt="express.js logo" />
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
-    </div>
 
-    <section id="contact">
-        Email
-        Phone
-        Everything
-    </section>
+                <div id="experience-three">
+                    <div class="card">
+                        <div class="image-container">
+                            <img src="/images/gigglehub.gif" alt="gigglehub"/>
+                        </div>
+                        <div class="description">
+                            <strong>"GiggleHub"</strong>
+                            <p>This project is a single-page web application, designed to display jokes in a clean and minimalistic interface. It utilizes Node.js, Express.js, and EJS for both front-end and back-end development.</p>
+                            <img class="logos" src="/images/nodejs.svg" alt="node.js logo" />
+                            <img class="logos" src="/images/expressjs.svg" alt="express.js logo" />
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <section id="contact">
+                <div class="form">
+                    <input type="text" name="name" value="Name">
+                    <input type="email" name="email">
+                    <input class="form-input" type="text" name="message">
+                </div>
+            </section>
+            <div class="cloud-container">
+                <img src="/images/cloud1.png" data-distance="20" alt="animated vector cloud" />
+                <img src="/images/cloud1.png" data-distance="40" alt="animated vector cloud" />
+                <img src="/images/cloud1.png" data-distance="59" alt="animated vector cloud" />
+                <img src="/images/cloud1.png" data-distance="7" alt="animated vector cloud" />
+                <img src="/images/cloud1.png" data-distance="100" alt="animated vector cloud" />
+                <img src="/images/cloud1.png" data-distance="130" alt="animated vector cloud" />
+                <img src="/images/cloud2.png" data-distance="200" alt="animated vector cloud" />
+                <img src="/images/cloud2.png" data-distance="15" alt="animated vector cloud" />
+                <img src="/images/cloud2.png" data-distance="70" alt="animated vector cloud" />
+                <img src="/images/cloud2.png" data-distance="180" alt="animated vector cloud" />
+                <img src="/images/cloud2.png" data-distance="215" alt="animated vector cloud" />
+                <img src="/images/cloud2.png" data-distance="10" alt="animated vector cloud" />
+            </div>
+        </div>
+
+    </div>
     
 <%- include('partials/footer.ejs'); -%>

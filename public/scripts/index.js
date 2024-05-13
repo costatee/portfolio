@@ -1,10 +1,65 @@
 import gsap from "https://cdn.skypack.dev/gsap";
 import { ScrollTrigger } from "https://cdn.skypack.dev/gsap/ScrollTrigger";
+import Lenis from "https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/+esm"
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
-console.log(gsap.version); // -> 3.12.2
-console.log(ScrollTrigger.version); // -> 3.12.2
-
+// Initialize scroll trigger from gsap
 gsap.registerPlugin(ScrollTrigger);
+
+// Initialize three.js
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ alpha: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.getElementById("canvas-container").appendChild(renderer.domElement);
+
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.3); // Color, Intensity
+scene.add( ambientLight );
+
+const light = new THREE.AmbientLight( 0xffffff, 0.6 ); // soft white light
+light.position.set(0, 1, 0)
+scene.add( light );
+
+const directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
+directionalLight.position.set(10, 5, 10);
+scene.add( directionalLight );
+
+const hemisphereLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.5 );
+scene.add( hemisphereLight );
+
+const pointLight = new THREE.PointLight(0xffffff, 0.5);
+pointLight.position.set(-5, -2, 0);
+scene.add(pointLight);
+
+
+// Example cube object
+// const geometry = new THREE.BoxGeometry( 2, 2, 2 );
+// const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+// const cube = new THREE.Mesh( geometry, material );
+
+// Load models
+const loader = new GLTFLoader();
+
+// const axesHelper = new THREE.AxesHelper(20);
+// scene.add(axesHelper);
+
+// Set camera position
+camera.position.z = 8;
+
+// Render loop
+function animate() {
+    requestAnimationFrame(animate);
+    // cube.rotation.x += 0.01;
+    // cube.rotation.y += 0.01;
+    renderer.render(scene, camera);
+}
+animate();
+
+
+
+
+
 
 let date = new Date().getFullYear()
 document.getElementById('date').innerHTML = date.toString();
@@ -41,7 +96,7 @@ const h1 = document.getElementById('h1');
 // p text coloring
 if (textbox) {
   const text = textbox.textContent.trim();
-  textbox.style.color = 'grey'
+  textbox.style.color = '#333533'
   textbox.style.width = '20ch'
   const newText = text.split('').map(letter => `<span>${letter}</span>`).join('');
   textbox.innerHTML = newText;
@@ -82,7 +137,13 @@ if (h1) {
   });
 }
 
+// horizontal scrolling
 const slider = document.getElementById('slider');
+const cards = gsap.utils.toArray('.card');
+const gigglehub = document.getElementById('gigglehub');
+const experienceTwo = document.getElementById('experience-two');
+const experienceThree = document.getElementById('experience-three');
+const clouds = gsap.utils.toArray('.cloud-container img');
 
 let tl = gsap.timeline({
   defaults: {
@@ -92,10 +153,84 @@ let tl = gsap.timeline({
     trigger: slider,
     pin: true,
     scrub: 2,
-    end: () => "+=" + slider.offsetWidth
+    end: () => "+=" + slider.offsetWidth,
   }
 })
 
 tl.to(slider, {
-  xPercent: -66
+  xPercent: -75.1
 })
+
+// fade in cards
+tl.from(gigglehub, {
+  opacity: 0,
+  scale: 0.96,
+  scrollTrigger: {
+    trigger: gigglehub,
+    start: "left 50%",
+    end: "center center",
+    containerAnimation: tl,
+    scrub: true,
+    // markers: true
+  }
+})
+
+tl.from(experienceTwo, {
+  scale: 0.95,
+  opacity: 0,
+  scrollTrigger: {
+    trigger: experienceTwo,
+    start: "left 60%",
+    end: "center center",
+    containerAnimation: tl,
+    scrub: true,
+    // markers: true
+  }
+})
+
+tl.from(experienceThree, {
+  // xPercent: -5,
+  // yPercent: -5,
+  opacity: 0,
+  scale: 0.95,
+  scrollTrigger: {
+    trigger: experienceThree,
+    start: "left 60%",
+    end: "center center",
+    containerAnimation: tl,
+    scrub: true,
+    // markers: true
+  }
+})
+
+// fade out cards
+tl.to(gigglehub, {
+  yPercent: 7,
+  opacity: 0,
+  scrollTrigger: {
+    trigger: gigglehub,
+    start: "right 70%", 
+    end: "left center", 
+    scrub: true,
+    // markers: true 
+  }
+});
+
+// cloud animation on scrolling
+clouds.forEach((cloud, index) => {
+  gsap.from(cloud, {
+    xPercent: cloud.dataset.distance,
+    scrollTrigger: {
+      scrub: 0.3
+    }
+  })
+})
+
+const lenis = new Lenis()
+
+function raf(time) {
+  lenis.raf(time)
+  requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
